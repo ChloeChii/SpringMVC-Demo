@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Test2</title>
+</head>
+<body>
+<h1>Test2 - Request Mapping首頁</h1>
+<a th:href="@{/testRequestMapping}">測試RequestMapping annotation的位置</a><br>
+<a th:href="@{/testRequestMapping}">測試RequestMapping annotation的value屬性-->/testRequestMapping</a><br>
+<a th:href="@{/test}">測試RequestMapping annotation的value屬性-->/test</a><br>
+<a th:href="@{/test}">測試RequestMapping annotation的method屬性-->GET</a><br>
+<form th:action="@{/test}" method="post"}>
+    <input type="submit" value="測試@RequestMapping method-->POST">
+</form>
+<a th:href="@{/testGetMapping}">測試@GetMapping annotation-->/testGetMapping</a><br>
+<form th:action="@{/testPostMapping}" method="post"}>
+    <input type="submit" value="測試PostMapping annotation-->/testPostMapping">
+</form>
+<form th:action="@{/testPut}" method="put"}>
+    <input type="submit" value="測試form表單是否能夠發送put request or delete request --> method = RequestMethod.PUT">
+</form>
+<a th:href="@{/testParamsAndHeader(username='admin',password=123)}">測試RequestMapping params annotation-->/testParamsAndHeader</a><br>
+<a th:href="@{/testParamsAndHeader(username='admin',password=1234)}">測試RequestMapping headers annotation-->/testParamsAndHeader</a><br>
+
+<a th:href="@{/a1a/testAnt}">測試@RequestMapping 可以match ant路徑-->使用？</a><br>
+<a th:href="@{/a1a/testAnt}">測試@RequestMapping 可以match ant路徑-->使用*</a><br>
+<a th:href="@{/a1a/testAnt}">測試@RequestMapping 可以match ant路徑-->使用**</a><br>
+
+
+<a th:href="@{/testPath/1/admin}">測試@RequestMapping 可以支持路徑中的站位符號-->使用/testPath</a><br>
+
+
+
+
+</body>
+</html>
