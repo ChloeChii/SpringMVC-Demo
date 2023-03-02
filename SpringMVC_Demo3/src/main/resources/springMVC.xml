@@ -31,7 +31,11 @@
     若只設置該標籤，則只能訪問靜態資源，其他請求則無法訪問，
     此時必須設置<mvc:annotation-driven/>解決問題
     -->
+    <!--透過path = "/" 設定首頁-->
+    <mvc:view-controller path="/" view-name="index"></mvc:view-controller>
     <mvc:default-servlet-handler/>
+
+    <!--    開啟mvc的註解驅動-->
     <mvc:annotation-driven>
         <mvc:message-converters>
             <bean class="org.springframework.http.converter.StringHttpMessageConverter">
