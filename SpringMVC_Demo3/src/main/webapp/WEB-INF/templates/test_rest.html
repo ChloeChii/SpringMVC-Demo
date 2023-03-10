@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a th:href="@{/user}">查詢所有用戶訊息</a><br>
+<a th:href="@{/user/1}">查詢使用者訊息id</a><br>
+<form th:action="@{/user}" method = "post">
+    username:<input type = "text" name = "username"><br>
+    password: <input type = "password" name = "password"><br>
+     <input type = "submit" value = "add" ><br>
+</form>
+
+<form th:action="@{/user}" method = "post">
+    <input type="hidden" name="_method" value="PUT">
+    username:<input type = "text" name = "username"><br>
+    password: <input type = "password" name = "password"><br>
+    <input type = "submit" value = "add" ><br>
+</form>
+
+<form th:action="@{/user/1}" method = "post">
+    <input type="hidden" name="_method" value="DELETE">
+    username:<input type = "text" name = "username"><br>
+    <input type = "submit" value = "add" ><br>
+</form>
+
+</body>
+</html>

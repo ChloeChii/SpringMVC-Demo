@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd">
+    <!-- 掃描組件 -->
+    <context:component-scan base-package="com.atyochenzen.mvc.controller"></context:component-scan>
+
+    <!--視圖解析器 -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/templates/"></property>
+        <property name="suffix" value=".jsp"></property>
+    </bean>
+    <!--
+    處理靜態資源，例如html,js,css,jpg,
+    若只設置該標籤，則只能訪問靜態資源，其他請求則無法訪問，
+    此時必須設置<mvc:annotation-driven/>解決問題
+    -->
+    <!--透過path = "/" 設定首頁-->
+<!--    <mvc:view-controller path="/" view-name="index"></mvc:view-controller>-->
+<!--    <mvc:default-servlet-handler/>-->
+
+<!--    &lt;!&ndash;    開啟mvc的註解驅動&ndash;&gt;-->
+<!--    <mvc:annotation-driven>-->
+<!--        <mvc:message-converters>-->
+<!--            <bean class="org.springframework.http.converter.StringHttpMessageConverter">-->
+<!--                <property name="defaultCharset" value="UTF-8" />-->
+<!--                <property name="supportedMediaTypes">-->
+<!--                    <list>-->
+<!--                        <value>text/html</value>-->
+<!--                        <value>application/json</value>-->
+<!--                    </list>-->
+<!--                </property>-->
+<!--            </bean>-->
+<!--        </mvc:message-converters>-->
+<!--    </mvc:annotation-driven>-->
+</beans>

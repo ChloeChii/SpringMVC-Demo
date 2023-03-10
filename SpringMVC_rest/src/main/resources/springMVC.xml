@@ -4,9 +4,10 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd">
-    <!-- 掃描組件 -->
-    <context:component-scan base-package="com.atyochenzen.mvc.controller"></context:component-scan>
 
+<!-- 掃描組件    -->
+    <context:component-scan base-package="com.atyochenzen.mvc"></context:component-scan>
+<!--    配置Thymeleaf-->
     <!--視圖解析器 -->
     <bean id="viewResolver" class="org.thymeleaf.spring5.view.ThymeleafViewResolver">
         <property name="order" value="1"/><!--設定priority, 所以可以設定多個 -->
@@ -26,31 +27,8 @@
             </bean>
         </property>
     </bean>
-    <!--
-    處理靜態資源，例如html,js,css,jpg,
-    若只設置該標籤，則只能訪問靜態資源，其他請求則無法訪問，
-    此時必須設置<mvc:annotation-driven/>解決問題
-    -->
-    <!--透過path = "/" 設定首頁-->
+<!--    配置試圖控制器-->
     <mvc:view-controller path="/" view-name="index"></mvc:view-controller>
-    <mvc:view-controller path="/test_view" view-name="test_view"></mvc:view-controller>
-    <mvc:view-controller path="/test_rest" view-name="test_rest"></mvc:view-controller>
-
-
-    <mvc:default-servlet-handler/>
-
-    <!--    開啟mvc的註解驅動-->
-    <mvc:annotation-driven>
-        <mvc:message-converters>
-            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
-                <property name="defaultCharset" value="UTF-8" />
-                <property name="supportedMediaTypes">
-                    <list>
-                        <value>text/html</value>
-                        <value>application/json</value>
-                    </list>
-                </property>
-            </bean>
-        </mvc:message-converters>
-    </mvc:annotation-driven>
+<!--    開啟mvc annotation驅動-->
+    <mvc:annotation-driven/>
 </beans>

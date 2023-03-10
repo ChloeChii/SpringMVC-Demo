@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/SpringMVC-jsp" />
     <file type="web" url="file://$PROJECT_DIR$/SpringMVC_Demo1" />
     <file type="web" url="file://$PROJECT_DIR$/SpringMVC_Demo2" />
     <file type="web" url="file://$PROJECT_DIR$/SpringMVC_Demo3" />
+    <file type="web" url="file://$PROJECT_DIR$/SpringMVC_rest" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
@@ -13,6 +15,8 @@
         <option value="$PROJECT_DIR$/SpringMVC_Demo1/pom.xml" />
         <option value="$PROJECT_DIR$/SpringMVC_Demo2/pom.xml" />
         <option value="$PROJECT_DIR$/SpringMVC_Demo3/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringMVC-jsp/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringMVC_rest/pom.xml" />
       </list>
     </option>
   </component>

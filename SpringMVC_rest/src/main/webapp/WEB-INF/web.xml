@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee  http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
   <!-- 就算把filter放到servlet後面，還是會優先執行-->
-<!--  配置HiddenHttpMethodFilter-->
+  <!--  配置HiddenHttpMethodFilter-->
   <filter>
     <filter-name>CharacterEncodingFilter</filter-name>
     <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -21,6 +21,7 @@
     <filter-name>CharacterEncodingFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
+
   <filter>
     <filter-name>HiddenHttpMethodFilter</filter-name>
     <filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
@@ -29,27 +30,21 @@
     <filter-name>HiddenHttpMethodFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
-<!--  配置編碼過濾器-->
 
   <servlet>
-    <servlet-name>DispatcherServlet</servlet-name>
+    <servlet-name>DispatchServlet</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-    <!--配置SpringMVC 配置文件的位置和名稱-->
     <init-param>
-      <param-name>contextConfigLocation</param-name> <!-- 上下文配置路徑-->
-      <param-value>classpath:springMVC.xml</param-value><!-- 在resources底下要新建同名的file才會compile success-->
+      <param-name>contextConfigLocation</param-name>
+      <param-value>classpath:springMVC.xml</param-value>
     </init-param>
-    <load-on-startup>1</load-on-startup><!--將前端控制器DispatcherServlet的初始化時間提前到服務器啟動時-->
+    <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
-    <servlet-name>DispatcherServlet</servlet-name>
-    <!-- 設置springmvc的核心控制器所能處理的請求的請求路徑
-      / 匹配的請求可以是/login 或.html或.js或,css的方式請求路徑
-      但是/不能匹配.jsp請求路徑的請求, jsp的本質就是一個servlet, 不需要dispatcher進行處理
-      如果這裡的spring可以處理jsp請求，springmvc會把jsp請求當成一般請求, 就找不到相對應的jspmm
-      /*表示所有請求，包含.jsp請求路徑的請求
-      框架就是配置文件+jar包
-    -->
+    <servlet-name>DispatchServlet</servlet-name>
+    <url-pattern></url-pattern>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
+
+
 </web-app>
